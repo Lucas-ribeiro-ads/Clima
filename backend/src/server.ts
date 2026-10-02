@@ -6,7 +6,7 @@ import cors from "cors"
 
 
 const app = express()
-const PORT = 3400
+const PORT = Number(process.env.PORT ?? 3400)
 
 app.use(express.json())
 app.use(cors({
