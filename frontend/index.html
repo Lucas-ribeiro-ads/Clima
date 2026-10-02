@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consulte o tempo e os avisos meteorológicos da Paraíba.">
+  <title>Clima PB | Tempo na Paraíba</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <header class="cabecalho">
+      <div class="container barra">
+        <a class="marca" href="#inicio" aria-label="Clima PB, início"><span class="marca-sol"
+            aria-hidden="true">☀</span>Clima<span class="marca-pb">PB</span></a>
+        <span class="localizacao">Meteorologia na Paraíba</span>
+      </div>
+    </header>
+    <main id="inicio" class="container">
+      <section class="abertura" aria-labelledby="titulo">
+        <div class="apresentacao">
+          <p class="etiqueta">O TEMPO PERTO DE VOCÊ</p>
+          <h1 id="titulo">Seu dia começa<br>com informação.</h1>
+          <p class="introducao">Acompanhe o tempo na sua cidade, planeje a semana e confira os avisos para a Paraíba.
+          </p>
+        </div>
+        <div class="consulta">
+          <h2>Como está o tempo?</h2>
+          <p>Escolha sua cidade para consultar.</p>
+          <label for="cidade">Município da Paraíba</label>
+          <div class="controles">
+            <select id="cidade" disabled>
+              <option value="">Carregando cidades…</option>
+            </select>
+            <button id="buscar" type="button" disabled>Consultar</button>
+          </div>
+          <p id="mensagem" class="status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="tempo" class="painel" aria-labelledby="nome-cidade" hidden>
+        <div class="titulo-secao">
+          <div>
+            <p class="etiqueta">CONDIÇÕES ATUAIS</p>
+            <h2 id="nome-cidade"></h2>
+          </div><span class="selo">Sua cidade</span>
+        </div>
+        <div class="metricas">
+          <div class="metrica principal">
+            <p>Temperatura</p><strong id="temperatura">—</strong>
+          </div>
+          <div class="metrica">
+            <p>Sensação térmica</p><strong id="sensacao">—</strong>
+          </div>
+          <div class="metrica">
+            <p>Umidade do ar</p><strong id="umidade">—</strong>
+          </div>
+        </div>
+        <div class="detalhes">
+          <section class="previsao" aria-labelledby="previsao-titulo">
+            <h3 id="previsao-titulo">Sua semana, dia a dia</h3>
+            <p class="descricao-secao">Temperaturas e probabilidade de chuva nos próximos 7 dias.</p>
+            <div class="tabela-container">
+              <table aria-labelledby="previsao-titulo">
+                <thead>
+                  <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Máxima</th>
+                    <th scope="col">Mínima</th>
+                    <th scope="col">Chuva</th>
+                  </tr>
+                </thead>
+                <tbody id="lista-previsao"></tbody>
+              </table>
+            </div>
+          </section>
+          <aside class="dicas" aria-labelledby="dicas-titulo"><span class="etiqueta">BEM-ESTAR</span>
+            <h3 id="dicas-titulo">Cuide de você</h3>
+            <ul id="lista-dicas"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="alertas" class="painel" aria-labelledby="alertas-titulo">
+        <div class="titulo-secao">
+          <div>
+            <p class="etiqueta">FIQUE POR DENTRO</p>
+            <h2 id="alertas-titulo">Avisos meteorológicos</h2>
+          </div><span class="selo">INMET</span>
+        </div>
+        <p class="descricao-secao">Avisos que abrangem regiões da Paraíba. Confira a área e a validade de cada
+          publicação.</p>
+        <p id="mensagem-alertas" class="status" role="status" aria-live="polite">Consultando avisos…</p>
+        <div id="lista-alertas"></div>
+      </section>
+      <footer class="rodape">
+        <p><strong>Clima PB</strong> · Informação para o seu dia.</p>
+        <p>Dados: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> e <a
+            href="https://portal.inmet.gov.br/" target="_blank" rel="noopener noreferrer">INMET</a>.</p>
+      </footer>
+    </main>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
