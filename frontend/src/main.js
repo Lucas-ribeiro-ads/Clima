@@ -1,6 +1,6 @@
 import './style.css'
 
-const API_URL = "http://localhost:3400"
+const API_URL = "https://clima-1g21.onrender.com"
 
 const selectCidade = document.querySelector("#cidade")
 const botaoBuscar = document.querySelector("#buscar")
