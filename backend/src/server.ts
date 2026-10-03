@@ -55,7 +55,7 @@ app.get("/tempo", async (req, res) => {
             chanceChuva: dados.daily.precipitation_probability_max[indice]
         }))
         const dicas: string[] = []
-        if (dados.current.temperature_2m >= 35) {
+        if (dados.current.temperature_2m >= 34) {
             dicas.push("Beba água regularmente ao longo do dia")
             dicas.push("Prefira locais fresco e atividades ao ar livre nos horários menos quentes.")
         }
