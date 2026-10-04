@@ -44,7 +44,15 @@ app.get("/tempo", async (req, res) => {
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${cidade.latitude}&longitude=${cidade.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&forecast_days=7&timezone=auto`
         const resposta = await fetch(url, { signal: AbortSignal.timeout(10000) })
         if (!resposta.ok) {
-            throw new Error(`Erro na API metereologica: ${resposta.status}`)
+    const detalhe = await resposta.text()
+
+    console.error("Falha na Open-Meteo:", {
+        status: resposta.status,
+        detalhe,
+        tentarNovamenteEm: resposta.headers.get("retry-after")
+    })
+
+    throw new Error(`Erro na API meteorológica: ${resposta.status}`)
         }
 
         const dados: DadosMeteorologicos = await resposta.json()
